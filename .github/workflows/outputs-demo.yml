@@ -6,7 +6,7 @@ jobs:
    steps:
      - name: step one
        id: step1
-       run: echo "version = 0.01" >> $GITHUB_OUTPUT
+       run: echo "version = 0.01" >> "$GITHUB_OUTPUT"
        
      - name: step two
        run : echo " This version is ${{steps.step1.outputs.version }} "
