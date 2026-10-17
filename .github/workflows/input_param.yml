@@ -1,0 +1,24 @@
+name: input_param_values
+on: 
+  workflow_dispatch:
+   inputs:
+     environment:
+      description: choose environment to deploy 
+      required: true
+      default: dev
+      type: choice
+      options:
+        - dev
+        - test
+        - prod
+     artifact-tag:
+      description: choose git tag to deploy      
+jobs:
+  inputParam:
+   runs-on: ubuntu-latest
+   steps:
+     - name : input values to deploy
+       run: echo "deploying the ${{inputs.artifact-tag}} application to ${{inputs.environment}}"
+     
+   
+  
