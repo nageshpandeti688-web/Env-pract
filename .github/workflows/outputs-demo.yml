@@ -4,8 +4,13 @@ jobs:
   output-dep:
    runs-on: ubuntu-latest
    steps:
-     - name: output-demo step1 dependent on step2
+     - name: step one
+       id: step1
        run: | 
         echo "github-username ${{github.actor}}"
         echo "github-username ${{github.ref_name}}"
+        echo "version = 0.01" >> $GITHUB_OUTPUT
+     - name: step two
+       run : echo " This version is ${{steps.step1.outputs.version }} "
+       
        
