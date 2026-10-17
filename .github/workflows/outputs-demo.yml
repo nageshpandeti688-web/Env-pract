@@ -1,0 +1,11 @@
+name: outputs-demo
+on: push
+jobs:
+  output-dep:
+   runs-on: ubuntu-latest
+   steps:
+     - name: output-demo step1 dependent on step2
+       run: | 
+        echo "github-username ${{github.actor}}"
+        echo "github-username ${{github.ref_name}}"
+       
