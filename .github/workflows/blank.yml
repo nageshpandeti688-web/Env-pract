@@ -1,0 +1,22 @@
+name: CI
+on: push
+jobs:
+  build:
+   outputs:
+     version: ${{steps.step1.outputs.version}}
+   runs-on: ubuntu-latest
+   steps:
+    - name : output-demo
+      id: step1
+      run: echo "version = 10.0.1">>$GITHUB_OUTPUT
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: deploy app
+        run: echo "deploying apps to ${{needs.build.outputs.version}}"
+   
+     
+     
+   
+
