@@ -8,7 +8,7 @@ jobs:
    steps:
     - name : output-demo
       id: step1
-      run: echo "version = 10.0.1">>$GITHUB_OUTPUT
+      run: echo "version = 10.0.1">> "$GITHUB_OUTPUT"
   deploy:
     needs: build
     runs-on: ubuntu-latest
